@@ -1,5 +1,6 @@
 package com.svenruppert.flow;
 
+import com.svenruppert.flow.views.versio01.VersionOneView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -51,8 +52,8 @@ public class MainLayout
 
   private SideNav getPrimaryNavigation() {
     SideNav sideNav = new SideNav();
-    sideNav.addItem(new SideNavItem("Dashboard", "/dashboard",
-                                    DASHBOARD.create()),
+    sideNav.addItem(new SideNavItem("Version One", "/" + VersionOneView.PATH,
+                                    BUG.create()),
                     new SideNavItem("Youtube", "/youtube",
                                     CART.create()),
                     new SideNavItem("About", "/about",
