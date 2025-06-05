@@ -1,6 +1,7 @@
 package com.svenruppert.flow;
 
-import com.svenruppert.flow.views.versio01.VersionOneView;
+import com.svenruppert.flow.views.version01.VersionOneView;
+import com.svenruppert.flow.views.version02.VersionTwoView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -23,23 +24,19 @@ public class MainLayout
   }
 
   private void createHeader() {
-    H1 appTitle = new H1("Vaadin Flow Demo");
+    H1 appTitle = new H1("Mutable HashCode");
 
     SideNav views = getPrimaryNavigation();
     Scroller scroller = new Scroller(views);
     scroller.setClassName(LumoUtility.Padding.SMALL);
 
     DrawerToggle toggle = new DrawerToggle();
-    H2 viewTitle = new H2("Orders");
-
-//    HorizontalLayout subViews = getSecondaryNavigation();
-//    Element element = subViews.getElement();
+    H2 viewTitle = new H2("Demo");
 
     HorizontalLayout wrapper = new HorizontalLayout(toggle, viewTitle);
     wrapper.setAlignItems(FlexComponent.Alignment.CENTER);
     wrapper.setSpacing(false);
 
-//    VerticalLayout viewHeader = new VerticalLayout(wrapper, subViews);
     VerticalLayout viewHeader = new VerticalLayout(wrapper);
     viewHeader.setPadding(false);
     viewHeader.setSpacing(false);
@@ -54,39 +51,14 @@ public class MainLayout
     SideNav sideNav = new SideNav();
     sideNav.addItem(new SideNavItem("Version One", "/" + VersionOneView.PATH,
                                     BUG.create()),
+                    new SideNavItem("Version Two", "/" + VersionTwoView.PATH,
+                                    BUG.create()),
                     new SideNavItem("Youtube", "/youtube",
-                                    CART.create()),
+                                    YOUTUBE.create()),
                     new SideNavItem("About", "/about",
                                     USER_HEART.create())
     );
     return sideNav;
   }
 
-//  private HorizontalLayout getSecondaryNavigation() {
-//    HorizontalLayout navigation = new HorizontalLayout();
-//    navigation.addClassNames(LumoUtility.JustifyContent.CENTER,
-//                             LumoUtility.Gap.SMALL, LumoUtility.Height.MEDIUM);
-//    RouterLink all = createLink("All");
-//    RouterLink open = createLink("Open");
-//    RouterLink completed = createLink("Completed");
-//    RouterLink cancelled = createLink("Cancelled");
-//    navigation.add(all, open, completed, cancelled);
-//    return navigation;
-//  }
-
-//  private RouterLink createLink(String viewName) {
-//    RouterLink link = new RouterLink();
-//    link.add(viewName);
-//    // Demo has no routes
-//    // link.setRoute(viewClass.java);
-//
-//    link.addClassNames(LumoUtility.Display.FLEX,
-//                       LumoUtility.AlignItems.CENTER,
-//                       LumoUtility.Padding.Horizontal.MEDIUM,
-//                       LumoUtility.TextColor.SECONDARY,
-//                       LumoUtility.FontWeight.MEDIUM);
-//    link.getStyle().set("text-decoration", "none");
-//
-//    return link;
-//  }
 }
